@@ -1,0 +1,18 @@
+/*
+ * main.c
+ *
+ *  Created on: 24-May-2022
+ *      Author: gowth
+ */
+
+#include "stm32f4xx.h"
+
+int main(){
+	return 0;
+}
+
+void EXTI0_IRQHandler(void){
+	//handle the interrupt
+	GPIO_IRQHandling(0);
+}
+
