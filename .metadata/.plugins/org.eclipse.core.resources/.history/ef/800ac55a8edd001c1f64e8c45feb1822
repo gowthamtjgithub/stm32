@@ -1,0 +1,130 @@
+/*
+ * stm32f407xx_spi_driver.c
+ *
+ *  Created on: 27-May-2022
+ *      Author: gowth
+ */
+
+#include "stm32f407xx_spi_driver.h"
+#include "stm32f4xx.h"
+
+/*************************************************************
+ * @fn				-
+ *
+ * @brief			-
+ *
+ * @param[in]		-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ */
+void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
+{}
+
+
+
+/*************************************************************
+ * @fn				-
+ *
+ * @brief			-
+ *
+ * @param[in]		-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ */
+void SPI_Init(SPI_Handle_t *pSPIHandle);
+/*************************************************************
+ * @fn				-
+ *
+ * @brief			-
+ *
+ * @param[in]		-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ */
+void SPI_DeInit(SPI_RegDef_t *pSPIx);
+
+
+/*************************************************************
+ * @fn				-
+ *
+ * @brief			-
+ *
+ * @param[in]		-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ */
+void SPI_SendData(SPI_RegDef_t *pSPIx,uint8_t *pTxBuffer, uint32_t Len);
+/*************************************************************
+ * @fn				-
+ *
+ * @brief			-
+ *
+ * @param[in]		-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ */
+void SPI_ReceiveData(SPI_RegDef_t *pSPIx,uint8_t *pRxBuffer, uint32_t Len);
+
+
+/*************************************************************
+ * @fn				-
+ *
+ * @brief			-
+ *
+ * @param[in]		-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ */
+void SPI_IRQConfig(uint8_t IRQNumber, uint8_t EnorDi);
+/*************************************************************
+ * @fn				-
+ *
+ * @brief			-
+ *
+ * @param[in]		-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ */
+void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority );
+/*************************************************************
+ * @fn				-
+ *
+ * @brief			-
+ *
+ * @param[in]		-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ */
+void SPI_IRQHandling(SPI_Handle_t *pSPIHandle);

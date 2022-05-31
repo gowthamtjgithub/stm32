@@ -50,6 +50,7 @@ typedef struct
 #define GPIO_PIN_12 12
 #define GPIO_PIN_13 13
 #define GPIO_PIN_14 14
+#define GPIO_PIN_15 15
 
 /**
  * @GPIO_PIN_MODES

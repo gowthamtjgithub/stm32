@@ -24,7 +24,9 @@ int main(void)
 	memset(&GPIOLed,0,sizeof(GPIOLed));
 	memset(&GPIOBtn,0, sizeof(GPIOBtn));
 
-	GPIOLed.pGPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_6;
+
+	GPIOLed.pGPIOx = GPIOA;
+	GPIOLed.pGPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_0;
 	GPIOLed.pGPIO_PinConfig->GPIO_PinMode = GPIO_MODE_OUT;
 	GPIOLed.pGPIO_PinConfig->GPIO_PinSpeed = GPIO_SPEED_LOW;
 	GPIOLed.pGPIO_PinConfig->GPIO_PinOPType = GPIO_OP_TYPE_PP;
@@ -34,21 +36,21 @@ int main(void)
 
 	GPIO_Init(&GPIOLed);
 
-
-	GPIOBtn.pGPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_4;
-	GPIOBtn.pGPIO_PinConfig->GPIO_PinMode = GPIO_MODE_IN;
+	GPIOBtn.pGPIOx = GPIOC;
+	GPIOBtn.pGPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_13;
+	GPIOBtn.pGPIO_PinConfig->GPIO_PinMode = GPIO_MODE_IT_FT;
 	GPIOBtn.pGPIO_PinConfig->GPIO_PinSpeed = GPIO_SPEED_FAST;
 	GPIOBtn.pGPIO_PinConfig->GPIO_PinPupdControl = GPIO_PIN_PU;
 
-	GPIO_PeriClockControl(GPIOE,ENABLE);
+	GPIO_PeriClockControl(GPIOC,ENABLE);
 
 	GPIO_Init(&GPIOBtn);
 
 
 
-		GPIO_IRQPriorityConfig(IRQ_NO_EXTI4,NVIC_IRQ_PRI4 );
+		GPIO_IRQPriorityConfig(IRQ_NO_EXTI15_10,47);
 
-		GPIO_IRQConfig(IRQ_NO_EXTI4, ENABLE);
+		GPIO_IRQConfig(IRQ_NO_EXTI15_10, ENABLE);
 
 		while(1);
 		//return 0;
@@ -58,9 +60,10 @@ int main(void)
 
 
 
-void EXTI4_IRQHandler(void){
+void EXTI15_10_IRQHandler(void){
 	//handle the interrupt
-	GPIO_IRQHandling(GPIO_PIN_4);
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_6);
+	delay();
+	GPIO_IRQHandling(GPIO_PIN_13);
+	GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_6);
 }
 

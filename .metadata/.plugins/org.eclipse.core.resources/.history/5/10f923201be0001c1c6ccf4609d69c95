@@ -1,0 +1,21 @@
+/*
+ * 004_spi_tx_testing.c
+ *
+ *  Created on: 30-May-2022
+ *      Author: gowth
+ */
+
+/*
+ * PB14 --> SPI2_MISO
+ * PB15 -->  SPI2_MOSI
+ * PB12 -->  SPI2_SCLK
+ * PB12 --> SPI2_NSS
+ */
+
+#include "stm32f4xx.h"
+#include "stm32f407xx_gpio_driver.h"
+
+int main(void)
+{
+	return 0;
+}

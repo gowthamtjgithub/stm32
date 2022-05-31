@@ -1,0 +1,41 @@
+/*
+ * 004_spi_tx_testing.c
+ *
+ *  Created on: 30-May-2022
+ *      Author: gowth
+ */
+
+/*
+ * PB14 --> SPI2_MISO
+ * PB15 -->  SPI2_MOSI
+ * PB12 -->  SPI2_SCLK
+ * PB12 --> SPI2_NSS
+ * ALF function mode : 5
+ */
+
+#include "stm32f4xx.h"
+#include "stm32f407xx_gpio_driver.h"
+
+void SPI_GPIOInits(void)
+{
+	GPIO_Handle_t SPIPins;
+
+	SPIPins.pGPIOx = GPIOB;
+	SPIPins.pGPIO_PinConfig->GPIO_PinMode = GPIO_MODE_ALTFN;
+	SPIPins.pGPIO_PinConfig->GPIO_PinAltFunMode = 5;
+	SPIPins.pGPIO_PinConfig->GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	SPIPins.pGPIO_PinConfig->GPIO_PinPupdControl = GPIO_NO_PUPD ;
+	SPIPins.pGPIO_PinConfig->GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+	//SCLK
+	SPIPins.pGPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_13;
+
+	GPIO_Init(&SPIPins);
+}
+
+int main(void)
+{
+	//this function is used to initialize the GPIO pins to behave as SPI2 pins
+	SPI_GPIOInits();
+	return 0;
+}

@@ -96,6 +96,9 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 
 		uint32_t temp = 0;
 
+		//enable the peripheral clock
+		GPIO_PeriClockControl(pGPIOHandle->pGPIOx, ENABLE);
+
 		//1.configure the mode of gpio pin
 		if(pGPIOHandle->pGPIO_PinConfig->GPIO_PinMode <= GPIO_MODE_ANALOG)
 		{
@@ -108,6 +111,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 		else
 		{
 			//this part will code later. (interrupt mode)
+
 			if((pGPIOHandle->pGPIO_PinConfig->GPIO_PinMode) == GPIO_MODE_IT_FT)
 			{
 				//configure the FTSR

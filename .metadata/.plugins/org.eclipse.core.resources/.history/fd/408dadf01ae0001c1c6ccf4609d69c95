@@ -1,0 +1,14 @@
+/*
+ * 004_spi_tx_testing.c
+ *
+ *  Created on: 30-May-2022
+ *      Author: gowth
+ */
+
+#include "stm32f4xx.h"
+#include "stm32f407xx_gpio_driver.h"
+
+int main(void)
+{
+	return 0;
+}
